@@ -1,0 +1,20 @@
+name: trabajos-paralelos
+on: 
+  push:
+jobs: 
+  job-a:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Entro"
+  job-b:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Procesando"
+  job-c:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Ya casi"
+  job-d:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "FIN :)"
