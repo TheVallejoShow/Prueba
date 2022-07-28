@@ -1,0 +1,12 @@
+name: parallel-jobs
+on:
+  push:
+jobs:
+  job-a:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Doing work"
+  job-b:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "More work at the same time"

@@ -1,0 +1,27 @@
+name: env-vars-example
+on:
+  push:
+env:
+  VENI: 'I came'
+jobs:
+  use-env-vars:
+    runs-on: ubuntu-latest
+    env:
+      VIDI: 'I saw'
+    steps:
+      -
+        name: Show me the vars
+        run: echo "$VENI, $VIDI, $VICI"
+        env:
+          VICI: 'I conquered'
+      -
+        name: Create env var
+        run: echo "foo=bar" >> $GITHUB_ENV
+      -
+        name: Useful default vars
+        run: |
+          echo "Workflow name:  $GITHUB_WORKFLOW"
+          echo "Workspace:      $GITHUB_WORKSPACE"
+          echo "Event:          $GITHUB_EVENT_NAME"
+          echo "SHA:            $GITHUB_SHA"
+          echo "Ref:            $GITHUB_REF"
