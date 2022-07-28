@@ -1,0 +1,25 @@
+name: event-triggers-example
+on:
+  push:
+    branches: 
+      - 'develop'
+      - 'foo/*'
+      - 'foo/**'
+      - '!foo/*/456'
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - 'develop'
+  schedule:
+    - cron: '*/15 * * * *'
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Event
+        run: echo "Triggered by: $GITHUB_EVENT_NAME"
+      -
+        name: Say Hello
+        run: echo "Hello world!"
